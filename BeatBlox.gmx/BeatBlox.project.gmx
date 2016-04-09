@@ -13,6 +13,7 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\objBlock</object>
+    <object>objects\objBoard</object>
     <object>objects\objController</object>
   </objects>
   <rooms name="rooms">

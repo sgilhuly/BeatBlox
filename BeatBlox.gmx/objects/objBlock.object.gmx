@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>objBlock</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>colour=0;
 frozen=false;
+image_xscale = block_size/64;
+image_yscale = block_size/64;
 </string>
           </argument>
         </arguments>
