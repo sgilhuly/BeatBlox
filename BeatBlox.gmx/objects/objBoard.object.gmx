@@ -28,17 +28,25 @@
             <string>globalvar grid_width;
 globalvar grid_height;
 globalvar block_size;
+globalvar max_colours;
+globalvar colours;
 
 grid_width = 12;
 grid_height = 12;
 block_size = 50;
+max_colours = 3;
+colours[0] = make_colour_rgb(255, 255, 0);
+colours[1] = make_colour_rgb(0, 255, 255);
+colours[2] = make_colour_rgb(255, 0, 255);
 
 room_set_width(rmTest, grid_width*block_size);
 room_set_height(rmTest, grid_height*block_size);
 
+randomize();
+
 for(i = 0; i &lt; grid_width; i++) {
     for(j = 0; j &lt; grid_height; j++) {
-        blocks[i, j] = instance_create(i*block_size, j*block_size, objBlock);        
+        blocks[i, j] = instance_create(i*block_size, j*block_size, objBlock);
     }
 }
 

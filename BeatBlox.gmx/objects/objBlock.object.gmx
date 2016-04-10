@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>colour=0;
-frozen=false;
+            <string>colour = floor(random(max_colours));
+image_blend = colours[colour];
+frozen = false;
 image_xscale = block_size/64;
 image_yscale = block_size/64;
 </string>
@@ -52,13 +53,9 @@ image_yscale = block_size/64;
           <argument>
             <kind>1</kind>
             <string>if(did_tick &amp; !frozen) {
-    colour=(colour+1)%2;
+    colour = (colour + 1) % max_colours;
     
-    if(colour==0) {
-        sprite_index=sprBlock;
-    } else {
-        sprite_index=sprBlockPink;
-    }
+    image_blend = colours[colour];
 }
 </string>
           </argument>

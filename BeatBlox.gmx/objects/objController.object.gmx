@@ -29,7 +29,7 @@
 globalvar tick;
 globalvar did_tick;
 
-max_tick=60;
+max_tick=30;
 tick=0;
 did_tick=0;
 </string>
