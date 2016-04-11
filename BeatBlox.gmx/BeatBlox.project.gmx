@@ -10,10 +10,15 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\destroyBlocks.gml</script>
+    <script>scripts\checkAlignThree.gml</script>
+    <script>scripts\checkDestroyed.gml</script>
+    <script>scripts\notifyTick.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\objBlock</object>
     <object>objects\objBoard</object>
-    <object>objects\objController</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmTest</room>

@@ -30,29 +30,73 @@ globalvar grid_height;
 globalvar block_size;
 globalvar max_colours;
 globalvar colours;
+globalvar colours_destroyed;
 
-grid_width = 12;
-grid_height = 12;
+max_tick=30;
+tick=0;
+
+grid_width = 10;
+grid_height = 10;
 block_size = 50;
 max_colours = 3;
 colours[0] = make_colour_rgb(255, 255, 0);
 colours[1] = make_colour_rgb(0, 255, 255);
 colours[2] = make_colour_rgb(255, 0, 255);
-
+colours_destroyed[0] = make_colour_rgb(125, 125, 0);
+colours_destroyed[1] = make_colour_rgb(0, 125, 125);
+colours_destroyed[2] = make_colour_rgb(125, 0, 125);
 room_set_width(rmTest, grid_width*block_size);
 room_set_height(rmTest, grid_height*block_size);
 
 randomize();
 
-for(i = 0; i &lt; grid_width; i++) {
-    for(j = 0; j &lt; grid_height; j++) {
-        blocks[i, j] = instance_create(i*block_size, j*block_size, objBlock);
+for(r = 0; r &lt; grid_height; r++) {
+    for(c = 0; c &lt; grid_width; c++) {
+        blocks[r, c] = instance_create(c*block_size, r*block_size, objBlock);
     }
 }
 
 
 
 
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(tick &gt;= max_tick) {
+    tick=0;
+    checkAlignThree(blocks, true);
+    checkAlignThree(blocks, false);    
+    //checkDestroyed(blocks);
+    for(r = 0; r &lt; grid_height; r++) {
+        for( c = 0; c &lt; grid_width; c++) {
+            notifyTick(blocks[r, c]);
+        }
+    }
+} else {
+    tick++;
+}
 
 
 
