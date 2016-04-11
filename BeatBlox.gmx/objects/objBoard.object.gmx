@@ -86,11 +86,11 @@ for(r = 0; r &lt; grid_height; r++) {
             <kind>1</kind>
             <string>if(tick &gt;= max_tick) {
     tick=0;
-    checkAlignThree(blocks, true);
-    checkAlignThree(blocks, false);    
+    checkAlignThree(true);
+    checkAlignThree(false);    
     //checkDestroyed(blocks);
-    for(r = 0; r &lt; grid_height; r++) {
-        for( c = 0; c &lt; grid_width; c++) {
+    for(var r = 0; r &lt; grid_height; r++) {
+        for(var c = 0; c &lt; grid_width; c++) {
             notifyTick(blocks[r, c]);
         }
     }

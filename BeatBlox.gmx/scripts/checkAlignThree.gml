@@ -1,43 +1,46 @@
-//if isn't row, assume is column
-blocks = argument0;
-isRow = argument1;
+//if we're not checking a row, assume we're checking a column
+var isRow = argument0;
 
-primarySize = grid_width;
-destroySize = grid_height; 
+var primarySize = grid_width;
+var destroySize = grid_height; 
 
 if(isRow) {
     primarySize = grid_height;
     destroySize = grid_width; 
 }
 
-for(i = 0; i < primarySize; i++) {
-    numConsecutive = 1;
-    prevColour = -1;
-    for(j = 0; j < destroySize; j++) {
-        r = j;
-        c = i;
+for(var i = 0; i < primarySize; i++) {
+    var numConsecutive = 1;
+    var prevColour = -1;
+    for(var j = 0; j <= destroySize; j++) {
+        var r = j;
+        var c = i;
         if(isRow) { 
             r = i;
             c = j;
         }
-        if(blocks[r, c].colour == prevColour ) {
+        
+        if(r < grid_height && c < grid_width && 
+            blocks[r, c].colour == prevColour ) {
             numConsecutive++;
         } else {
             if(numConsecutive >= 3) {
                 //destroy them
-                rStart = r;
-                cStart = c;
+                var rStart = r;
+                var cStart = c;
                 if(isRow) {
                     cStart-=numConsecutive;
                 } else {
                     rStart-=numConsecutive;
                 }
-                destroyBlocks(blocks, rStart, cStart, 
+                destroyBlocks(rStart, cStart, 
                     numConsecutive, isRow);
             }
             numConsecutive = 1;
-        } 
-        prevColour = blocks[r, c].colour;
+        }
+        if(r < grid_height && c < grid_width) {
+            prevColour = blocks[r, c].colour;
+        }
     }
 }
 

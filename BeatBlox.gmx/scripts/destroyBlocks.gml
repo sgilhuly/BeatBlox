@@ -1,9 +1,8 @@
 //If destroyRow is false, destroy column
-blocks = argument0; 
-r = argument1; 
-c = argument2; 
-numConsecutive = argument3; 
-destroyRow = argument4;
+r = argument0; 
+c = argument1; 
+numConsecutive = argument2; 
+destroyRow = argument3;
 
 indexStart = r;
 
